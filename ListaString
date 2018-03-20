@@ -1,1 +1,52 @@
-
+public class ListaString {
+    Nodo head=null;
+    public boolean IsEmpty(){
+            if(head==null)
+                return true;
+            else
+                return false;
+    }
+    public int size(){
+            int cont=0;
+            Nodo temp=head;
+            while(temp!=null){
+                cont+=1;
+                temp=temp.siguiente;
+            }
+            return cont;
+    }
+    public void insertarAlFinal(Nodo nuevo) {
+            if(IsEmpty()){
+                head=nuevo;
+            }else{
+		Nodo temp=head;
+		while(temp.siguiente!=null) {
+			temp=temp.siguiente;
+		}
+		temp.siguiente=nuevo;
+            }
+    }
+    public void concat(){
+        
+    }
+    public Nodo getNode(int indice){
+            if(size()<indice){
+                return null;
+            }else{
+                Nodo temp=head;
+                for(int i=0;i<indice;i++){
+                    temp=temp.siguiente;
+                }
+                return temp;
+            }
+        }
+    public static void main(String[] args) {
+        ListaString cadena=new ListaString();
+        String prueba="esto es una prueba";
+        int cont=0;
+        while(cont<prueba.length()){
+            cadena.insertarAlFinal(new Nodo(prueba.charAt(cont)));
+            cont++;
+        }
+    }    
+}
