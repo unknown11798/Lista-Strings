@@ -1,1 +1,10 @@
-
+public class Nodo {
+    char caracter;
+    public Nodo(){
+        
+    }
+    public Nodo(char caracter){
+        this.caracter=caracter;
+    }
+    public Nodo siguiente;
+}
