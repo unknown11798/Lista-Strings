@@ -1,12 +1,12 @@
-public class Nodo {
+public class NodoString {
     char caracter;
-    public Nodo(){
+    public NodoString(){
         
     }
-    public Nodo(char caracter){
+    public NodoString(char caracter){
         this.caracter=caracter;
     }
-    public Nodo siguiente;
+    public NodoString siguiente;
     public char returnChar(){
         return this.caracter;
     }
