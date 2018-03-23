@@ -1,52 +1,105 @@
 public class ListaString {
-    Nodo head=null;
+    NodoString head=null;
     public boolean IsEmpty(){
-            if(head==null)
-                return true;
-            else
-                return false;
+        if(head!=null)
+            return false;
+        else
+            return true;
     }
     public int size(){
-            int cont=0;
-            Nodo temp=head;
-            while(temp!=null){
-                cont+=1;
-                temp=temp.siguiente;
-            }
-            return cont;
+        int cont=0;
+        NodoString temp=head;
+        while(temp!=null){
+            cont++;
+            temp=head.siguiente;
+        }
+        return cont;
     }
-    public void insertarAlFinal(Nodo nuevo) {
+    public void print(){
+        NodoString temp=head;
+        while(temp!=null){
+            System.out.print(temp.returnChar());
+            temp=temp.siguiente;
+        }
+    }
+    public void concat(String add){
+        int cont=0;
+        while(cont<add.length()){
+            insertEnd(new NodoString(add.charAt(cont)));
+            cont++;
+        }
+    }
+    public String subString(int beginIndex){
+        String testeo="";
+        int cont=0;
+        NodoString temp=head;
+        while(cont<size()){
+            temp=temp.siguiente;
+            if(cont>=beginIndex)
+                testeo+=temp.returnChar();             
+            cont++;
+        }
+        return testeo;
+    }
+    public String subString(int beginIndex,int endIndex){
+        String testeo="";
+        int cont=0;
+        NodoString temp=head;
+        while(cont<endIndex){
+            temp=temp.siguiente;
+            if(cont>=beginIndex)
+                testeo+=temp.returnChar();            
+            cont++;
+        }
+        return testeo;
+    }
+    public boolean contains(String search){
+        
+        if()
+            return true;
+        else
+            return false;
+    }
+    public void split(){
+        
+    }
+    public void insertEnd(NodoString nuevo) {
             if(IsEmpty()){
                 head=nuevo;
             }else{
-		Nodo temp=head;
+		NodoString temp=head;
 		while(temp.siguiente!=null) {
 			temp=temp.siguiente;
 		}
 		temp.siguiente=nuevo;
             }
-    }
-    public void concat(){
-        
-    }
-    public Nodo getNode(int indice){
-            if(size()<indice){
-                return null;
-            }else{
-                Nodo temp=head;
-                for(int i=0;i<indice;i++){
-                    temp=temp.siguiente;
-                }
-                return temp;
+	}
+    public NodoString getNode(int indice){
+        if(size()<indice){
+            return null;
+        }else{
+            NodoString temp=head;
+            for(int i=0;i<indice;i++){
+                temp=temp.siguiente;
             }
+            return temp;
         }
+    }
     public static void main(String[] args) {
-        ListaString cadena=new ListaString();
-        String prueba="esto es una prueba";
-        int cont=0;
+        ListaString alfa=new ListaString();
+        String prueba="Esto es una prueba de texto";
+        int cont =0;
         while(cont<prueba.length()){
-            cadena.insertarAlFinal(new Nodo(prueba.charAt(cont)));
+            alfa.insertEnd(new NodoString(prueba.charAt(cont)));
             cont++;
         }
-    }    
+        System.out.println("Concatenar con 'y funciona'");
+        alfa.print();
+        System.out.println("Concatenar con 'y funciona'");
+        alfa.concat("y funciona");
+        alfa.print();
+        System.out.println("SubString desde índice 4 hasta índice 11");
+        alfa.subString(4, 11);
+        alfa.print();
+    }   
 }
