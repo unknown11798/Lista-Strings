@@ -7,4 +7,7 @@ public class Nodo {
         this.caracter=caracter;
     }
     public Nodo siguiente;
+    public char returnChar(){
+        return this.caracter;
+    }
 }
